@@ -1,0 +1,27 @@
+{
+  "name": "mern_links",
+  "version": "1.0.0",
+  "description": "mern generate links",
+  "main": "app.js",
+  "scripts": {
+    "start": "app.js",
+    "server": "nodemon app.js"
+  },
+  "keywords": [
+    "mern",
+    "linds",
+    "node",
+    "react",
+    "mongoDB"
+  ],
+  "author": "Evgeniy Stadnik",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.10"
+  },
+  "devDependencies": {
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.3"
+  }
+}

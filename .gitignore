@@ -1,0 +1,4 @@
+.idea
+.idea/*
+# dependencies
+/node_modules

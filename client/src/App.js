@@ -7,7 +7,7 @@ import AuthGate from "./modules/AuthGate";
 function App() {
   return (
     <Router>
-      <AuthGate isAuthenticated={true}>
+      <AuthGate isAuthenticated={false}>
         <Pages/>
       </AuthGate>
     </Router>

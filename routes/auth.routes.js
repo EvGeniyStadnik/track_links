@@ -8,7 +8,7 @@ const User = require('../models/User');
 
 const router = Router();
 
-//'api/auth/register'
+//'/api/auth/register'
 router.post(
   '/register',
   [

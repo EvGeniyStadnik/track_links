@@ -9,7 +9,7 @@ export const useHttp = () => {
     setLoading(true);
     try {
       const response = await fetch(url, {method, body, headers});
-      const data = response.json();
+      const data = await response.json();
 
       if (!response.ok) {
         throw new Error(data.message || 'Some thing went wrong');
@@ -27,7 +27,7 @@ export const useHttp = () => {
 
   }, []);
 
-  const clearError = () => setError(null);
+  const clearError = useCallback(() => setError(null), []);
 
   return {request, loading, error, clearError}
 };

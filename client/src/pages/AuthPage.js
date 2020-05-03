@@ -51,7 +51,18 @@ const AuthPage = () => {
       const body = JSON.stringify({...userData});
       const headers = {'Content-Type': 'application/json'};
       const data = await request('/api/auth/register', 'POST', body, headers);
-      console.log('Data', data)
+      setOpenNotification(true)
+      setMessage(data.message)
+    } catch (e) {
+    }
+  };
+
+  const handleLogin = async () => {
+    try {
+      const body = JSON.stringify({...userData});
+      const headers = {'Content-Type': 'application/json'};
+      const data = await request('/api/auth/login', 'POST', body, headers);
+      console.log(data)
     } catch (e) {
     }
   };
@@ -92,6 +103,7 @@ const AuthPage = () => {
               className={classes.buttonRegister}
               size="medium"
               disabled={loading}
+              onClick={handleLogin}
             >
               Login
             </Button>

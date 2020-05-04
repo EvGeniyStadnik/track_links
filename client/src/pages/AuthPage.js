@@ -9,7 +9,7 @@ import {
   TextField
 } from "@material-ui/core";
 
-import NotificationMessage from '../modules/NotificationMessage';
+import NotificationMessage from '../components/NotificationMessage';
 import {useHttp} from '../hooks/http.hook';
 import {AuthContext} from '../context/AuthContext';
 

@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState, useContext} from 'react';
 import {
   Card,
   CardContent,
@@ -11,11 +11,13 @@ import {
 
 import NotificationMessage from '../modules/NotificationMessage';
 import {useHttp} from '../hooks/http.hook';
+import {AuthContext} from '../context/AuthContext';
 
 import useStyles from './AuthPageStyles';
 
 const AuthPage = () => {
   const classes = useStyles();
+  const { login } = useContext(AuthContext);
 
   const {loading, request, error, clearError} = useHttp();
 
@@ -62,7 +64,7 @@ const AuthPage = () => {
       const body = JSON.stringify({...userData});
       const headers = {'Content-Type': 'application/json'};
       const data = await request('/api/auth/login', 'POST', body, headers);
-      console.log(data)
+      login(data.userId, data.token)
     } catch (e) {
     }
   };

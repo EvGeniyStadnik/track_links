@@ -18,6 +18,6 @@ module.exports = (req, res, next) => {
     req.user = userData;
     next();
   } catch (e) {
-    return res.status(401).json({message: `Error in authorization ${e.message}`})
+    return res.status(401).json({message: e.message})
   }
 }

@@ -1,5 +1,5 @@
 import React, {useCallback, useContext, useEffect, useState} from 'react';
-import {useParams, useHistory, NavLink} from 'react-router-dom'
+import {useParams, useHistory} from 'react-router-dom';
 import {CircularProgress, createStyles, makeStyles} from '@material-ui/core';
 
 import {useHttp} from "../hooks/http.hook";

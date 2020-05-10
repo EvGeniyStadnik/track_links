@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useCallback, useEffect} from 'react';
 import {Container, createStyles, makeStyles, Typography} from "@material-ui/core";
 import {NavLink} from "react-router-dom";
+import {useHttp} from "../hooks/http.hook";
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -28,10 +29,10 @@ export const LinkCard = ({link}) => {
         Link
       </Typography>
       <Typography className={classes.item}>
-        <b>Short link:</b> <NavLink target='_blank' to={link?.from}>{from}</NavLink>
+        <b>Short link:</b> <a target='_blank' rel="noopener noreferrer" href={to}>{to}</a>
       </Typography>
       <Typography className={classes.item}>
-        <b>Initial link:</b> <NavLink target='_blank' to={to}>{link?.to}</NavLink>
+        <b>Initial link:</b> <a target='_blank' rel="noopener noreferrer" href={from}>{from}</a>
       </Typography>
       <Typography className={classes.item}>
         <b>Clicks quantity:</b> {clicks}

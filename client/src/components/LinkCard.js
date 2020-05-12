@@ -1,7 +1,5 @@
-import React, {useCallback, useEffect} from 'react';
+import React from 'react';
 import {Container, createStyles, makeStyles, Typography} from "@material-ui/core";
-import {NavLink} from "react-router-dom";
-import {useHttp} from "../hooks/http.hook";
 
 const useStyles = makeStyles(() =>
   createStyles({

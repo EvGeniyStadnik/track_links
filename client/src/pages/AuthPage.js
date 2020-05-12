@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState, useContext} from 'react';
+import React, { useEffect, useState, useContext} from 'react';
 import {
   Card,
   CardContent,
@@ -9,7 +9,6 @@ import {
   TextField
 } from "@material-ui/core";
 
-import NotificationMessage from '../components/NotificationMessage';
 import {useHttp} from '../hooks/http.hook';
 import {AuthContext} from '../context/AuthContext';
 
@@ -17,20 +16,16 @@ import useStyles from './AuthPageStyles';
 
 const AuthPage = () => {
   const classes = useStyles();
-  const { login } = useContext(AuthContext);
+  const { login, notification } = useContext(AuthContext);
 
   const {loading, request, error, clearError} = useHttp();
 
-  const [message, setMessage] = useState('');
-  const [open, setOpenNotification] = useState(false);
-
   useEffect(() => {
     if(error){
-      setOpenNotification(true)
-      setMessage(error)
+      notification.showMessage({message: error})
       clearError()
     }
-  }, [clearError, error])
+  }, [clearError, error, notification])
 
   const [userData, setUserData] = useState({
     email: '',
@@ -44,17 +39,12 @@ const AuthPage = () => {
     })
   }
 
-  const handleCloseNotification = useCallback(() => {
-    setOpenNotification(false);
-  }, [])
-
   const handleRegister = async () => {
     try {
       const body = JSON.stringify({...userData});
       const headers = {'Content-Type': 'application/json'};
       const data = await request('/api/auth/register', 'POST', body, headers);
-      setOpenNotification(true)
-      setMessage(data.message)
+      notification.showMessage({message: data.message})
     } catch (e) {
     }
   };
@@ -121,7 +111,6 @@ const AuthPage = () => {
           </CardActions>
         </Card>
       </Container>
-      <NotificationMessage message={message} open={open} handleClose={handleCloseNotification}/>
     </>
   )
 }

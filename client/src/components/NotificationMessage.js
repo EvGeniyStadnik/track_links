@@ -1,8 +1,26 @@
-import React, {memo} from 'react';
+import React, {memo, useContext, useEffect, useState} from 'react';
 import {Snackbar, IconButton} from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 
-const NotificationMessage = ({message, open, handleClose}) => {
+import {AuthContext} from "../context/AuthContext";
+
+const NotificationMessage = () => {
+  const {notification} = useContext(AuthContext);
+
+  const [message, setMessage] = useState('');
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if(notification.value.message){
+      setMessage(notification.value.message);
+      setOpen(true);
+    }
+  }, [notification.value])
+
+  const handleClose = () => {
+    setOpen(false);
+  }
+
   return (
     <Snackbar
       anchorOrigin={{

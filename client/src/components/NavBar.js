@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {NavLink, useHistory} from 'react-router-dom';
 import { createStyles, makeStyles } from '@material-ui/core/styles';
-import {AppBar, Toolbar, Typography, Button, IconButton} from '@material-ui/core';
+import {AppBar, Toolbar, Typography, Button} from '@material-ui/core';
 
 import {AuthContext} from '../context/AuthContext';
 

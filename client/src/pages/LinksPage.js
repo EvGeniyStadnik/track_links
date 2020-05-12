@@ -32,7 +32,7 @@ const LinksPage = () => {
         logout();
       }
     }
-  }, []);
+  }, [logout, request, token]);
 
   useEffect(() => {
     fetchLinks()

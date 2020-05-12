@@ -6,6 +6,13 @@ export const AuthContext = createContext({
   userId: null,
   token: null,
   login: noop,
-  logout:noop,
-  isAuthenticated: false
+  logout: noop,
+  isAuthenticated: false,
+
+  notification: {
+    value: {
+      message: {},
+    },
+    showMessage: noop,
+  }
 });

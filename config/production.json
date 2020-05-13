@@ -1,0 +1,6 @@
+{
+  "port": 80,
+  "jwtSecret": "EvGeniy",
+  "mongoUri": "mongodb+srv://evgeniy:1234qwer@cluster0-bar4c.azure.mongodb.net/app?retryWrites=true&w=majority",
+  "baseUrl": "http://my-domen.ua"
+}

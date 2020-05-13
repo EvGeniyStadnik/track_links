@@ -4,10 +4,12 @@
   "description": "mern generate links",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
+    "start": "cross-env NODE_ENV=production node app.js",
     "server": "nodemon app.js",
     "client": "npm run start --prefix client",
-    "dev": "concurrently \"npm run client\" \"npm run server\""
+    "client:install": "npm install --prefix client",
+    "client:build": "npm run build --prefix client",
+    "dev": "cross-env NODE-ENV=development concurrently \"npm run client\" \"npm run server\""
   },
   "keywords": [
     "mern",
@@ -25,10 +27,12 @@
     "express-validator": "^6.4.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.10",
+    "path": "^0.12.7",
     "shortid": "^2.2.15"
   },
   "devDependencies": {
     "concurrently": "^5.2.0",
+    "cross-env": "^7.0.2",
     "nodemon": "^2.0.3"
   }
 }
